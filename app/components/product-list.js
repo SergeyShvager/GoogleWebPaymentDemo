@@ -8,10 +8,6 @@ import Product from  './product';
 const ProductList = React.createClass({
     propTypes: {},
 
-    onBuyClick() {
-
-    },
-
     render() {
         const styles = {
             root: {
@@ -37,7 +33,7 @@ const ProductList = React.createClass({
                 >
                     <Subheader>December</Subheader>
                     {products.map((item, index) => (
-                        <Product key={index} product={item} onBuyClick={this.onBuyClick} />
+                        <Product key={index} product={item} onClick={this.props.onClick} />
                     ))}
                 </GridList>
             </div>
