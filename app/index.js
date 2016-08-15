@@ -28,7 +28,7 @@ injectTapEventPlugin();
 
 const customOptions = {
     palette: {
-        primary1Color: orange500
+        primary1Color: '#f45334'
     }
 };
 ReactDOM.render(

@@ -28,10 +28,11 @@ const ProductList = React.createClass({
         return (
             <div style={styles.root}>
                 <GridList
-                    cellHeight={200}
+                    cellHeight={300}
+                    padding={8}
                     style={styles.gridList}
                 >
-                    <Subheader>December</Subheader>
+                    <Subheader>Funiture</Subheader>
                     {products.map((item, index) => (
                         <Product key={index} product={item} onClick={this.props.onClick} />
                     ))}

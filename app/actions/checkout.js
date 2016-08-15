@@ -31,8 +31,8 @@ export function startCheckout(product) {
         if (!window.PaymentRequest) {
             // PaymentRequest API is not available. Forwarding to
             // legacy form based experience.
-            dispatch(fininishCheckoutProcessWithError('API is not supported'))
-            location.href = '/checkout';
+            alert('API is not supported');
+
             return;
         }
 
@@ -92,14 +92,19 @@ export function startCheckout(product) {
             requestPayerPhone: true
         };
 
-        const request = new PaymentRequest(supportedInstruments, details, options);
+        try {
+            const request = new PaymentRequest(supportedInstruments, details, options);
 
-        request.show().then((result) => {
-            return result.complete('success').then(()=> {
-                dispatch(finishCheckoutProcess(result));
-                hashHistory.push('/checkout-confirmation');
+            request.show().then((result) => {
+                return result.complete('success').then(()=> {
+                    dispatch(finishCheckoutProcess(result));
+                    hashHistory.push('/checkout-confirmation');
+                });
             });
-        });
+        } catch (e) {
+            alert('API is not supported');
+        }
+
 
     }
 }

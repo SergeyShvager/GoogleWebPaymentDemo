@@ -16,7 +16,7 @@ export default React.createClass({
         return (
             <div>
                 <AppBar
-                    title="Demo"
+                    title="#Home24"
                 />
                 <ProductList products={products} onClick={startCheckout} />
 
