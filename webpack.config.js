@@ -42,7 +42,7 @@ const common = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'app/template/index.ejs',
-            title: 'Cofeed app',
+            title: 'Home24 Awesome Payment',
             appMountId: 'app',
             inject: false
         })
