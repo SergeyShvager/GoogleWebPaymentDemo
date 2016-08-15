@@ -1,61 +1,40 @@
 const defaultState = [
         {
             sku: 'SKU-1',
-            img: 'images/grid-list/00-52-29-429_640.jpg',
-            title: 'Breakfast',
+            img: 'http://cdn.home24.net/images/media/catalog/product/250x250/png/s/e/sessel-houston-i-webstoff-chrom-stoff-milan-gelb-3936076.jpg',
+            title: 'Sessel Houston I',
             author: 'jill111',
             amount: {
                 currency: 'EUR',
-                value : '59.00'
+                value : '749.99'
             }
         },
         {
             sku: 'SKU-2',
-            img: 'images/grid-list/burger-827309_640.jpg',
-            title: 'Tasty burger',
+            img: 'http://cdn.home24.net/images/media/catalog/product/250x250/png/e/c/ecksofa-grapefield-webstoff-longchair-ottomane-davorstehend-rechts-meeresgruen-3177209.jpg',
+            title: 'Ecksofa Grapefield',
             author: 'pashminu',
             amount: {
                 currency: 'EUR',
-                value : '59.00'
+                value : '1649.00'
             }
         },
         {
 
             sku: 'SKU-3',
-            img: 'images/grid-list/camera-813814_640.jpg',
-            title: 'Camera',
+            img: 'http://cdn.home24.net/images/media/catalog/product/250x250/png/t/i/tischleuchte-tripod-metall-eisen-1-flammig-740822.jpg',
+            title: 'Tischleuchte TRIPOD',
             author: 'Danson67',
             amount: {
                 currency: 'EUR',
-                value : '50.00'
-            }
-        },
-        {
-
-            sku: 'SKU-4',
-            img: 'images/grid-list/morning-819362_640.jpg',
-            title: 'Morning',
-            author: 'fancycrave1',
-            amount: {
-                currency: 'EUR',
-                value : '75.00'
-            }
-        },
-        {
-            sku: 'SKU-5',
-            img: 'images/grid-list/hats-829509_640.jpg',
-            title: 'Hats',
-            author: 'Hans',
-            amount: {
-                currency: 'EUR',
-                value : '355.00'
+                value : '59.99'
             }
         },
         {
 
             sku: 'SKU-6',
-            img: 'images/grid-list/honey-823614_640.jpg',
-            title: 'Honey',
+            img: 'http://cdn.home24.net/images/media/catalog/product/250x250/png/a/r/armlehnenstuhl-nicholas-kunstleder-hellgrau-1068902.jpg',
+            title: 'Armlehnenstuhl Nicholas I ',
             author: 'fancycravel',
             amount: {
                 currency: 'EUR',
@@ -65,23 +44,23 @@ const defaultState = [
         {
 
             sku: 'SKU-7',
-            img: 'images/grid-list/vegetables-790022_640.jpg',
-            title: 'Vegetables',
+            img: ' http://cdn.home24.net/images/media/catalog/product/250x250/png/f/i/figur-woody-bumble-eiche-eiche-natur-3132513.jpg',
+            title: 'Figur Woody Bumble',
             author: 'jill111',
             amount: {
                 currency: 'EUR',
-                value : '155.00'
+                value : '99.00'
             }
         },
         {
 
             sku: 'SKU-8',
-            img: 'images/grid-list/water-plant-821293_640.jpg',
-            title: 'Water plant',
+            img: 'http://cdn.home24.net/images/media/catalog/product/250x250/png/i/n/indexliving-3603733.jpg',
+            title: 'Armlehnenstuhl Le Gaillard',
             author: 'BkrmadtyaKarki',
             amount: {
                 currency: 'EUR',
-                value : '55.00'
+                value : '119.99'
             }
         }
     ];
