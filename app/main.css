@@ -12,3 +12,16 @@ body {
     display: inline-block;
     text-align: center;
 }
+
+.confirmation-page__details-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.confirmation-page__details-table th, .confirmation-page__details-table td {
+  padding: 15px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}

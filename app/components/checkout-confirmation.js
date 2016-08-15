@@ -17,9 +17,7 @@ export default React.createClass({
 
     render() {
         const { startCheckout, checkout } = this.props;
-        const style = {
-          marginLeft: 20
-        };
+
 
         return (
             <div>
@@ -29,14 +27,30 @@ export default React.createClass({
 
                 <Paper>
 
-                <table>
-                <tbody>
-                <tr>
-                <td>Payment type</td>
-                <td>{checkout.methodName}</td>
-                </tr>
-                </tbody>
-                </table>
+                    <table className="confirmation-page__details-table">
+                        <tbody>
+                            <tr>
+                                <td>Payment type</td>
+                                <td>{checkout.methodName}</td>
+                            </tr>
+                            <tr>
+                                <td>Cardholder name</td>
+                                <td>{checkout.details.cardholderName}</td>
+                            </tr>
+                            <tr>
+                                <td>Card number</td>
+                                <td>{checkout.details.cardNumber}</td>
+                            </tr>
+                            <tr>
+                                <td>Card expire</td>
+                                <td>{`${checkout.details.expiryMonth}/${checkout.details.expiryYear}`}</td>
+                            </tr>
+                            <tr>
+                                <td>Cardholder name</td>
+                                <td>{checkout.details.cardholderName}</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </Paper>
                 <NotificationWidget />
