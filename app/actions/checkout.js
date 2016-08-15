@@ -2,8 +2,6 @@ export const CHECKOUT_PROCESS_START = 'CHECKOUT_PROCESS_START';
 export const CHECKOUT_PROCESS_FINISH = 'CHECKOUT_PROCESS_FINISH';
 export const CHECKOUT_PROCESS_ERROR = 'CHECKOUT_PROCESS_ERROR';
 
-
-
 function startCheckoutProcess() {
     return {
         type: CHECKOUT_PROCESS_START
@@ -19,73 +17,89 @@ function finishCheckoutProcess(result) {
 
 function fininishCheckoutProcessWithError(error) {
     return {
-      type: CHECKOUT_PROCESS_ERROR,
-      error
+        type: CHECKOUT_PROCESS_ERROR,
+        error
     }
 }
 
 export function startCheckout(product) {
-    return (dispatch: Function) => {
-      dispatch(startCheckoutProcess());
+    return (dispatch:Function) => {
+        dispatch(startCheckoutProcess());
 
-      if (!window.PaymentRequest) {
-          // PaymentRequest API is not available. Forwarding to
-          // legacy form based experience.
-        dispatch(fininishCheckoutProcessWithError('API is not supported'))
-        location.href = '/checkout';
-        return;
-      }
+        if (!window.PaymentRequest) {
+            // PaymentRequest API is not available. Forwarding to
+            // legacy form based experience.
+            dispatch(fininishCheckoutProcessWithError('API is not supported'))
+            location.href = '/checkout';
+            return;
+        }
 
-      const supportedInstruments = [{ supportedMethods: ['visa', 'mastercard', 'amex'] }];
+        const supportedInstruments = [{ supportedMethods: ['visa', 'mastercard', 'amex'] }];
 
-      const { amount, sku } = product;
-      const { value, currency } = amount;
+        const { amount, sku } = product;
+        const { value, currency } = amount;
 
-      const details = {
-        displayItems: [
-          {
-            label: sku,
-            amount: { currency, value }
-          },
-          {
-            label: 'Shipment',
-            amount: { currency, value: '0.00' }
-          }
-        ],
-        total: {
-          label: 'Total',
-          amount: { currency, value }
-        },
-        shippingOptions: [
-          {
-            id: 'parcel',
-            label: 'Parcel shipping',
-            amount: {currency, value: '0.00'},
-            selected: true
-          },
-          {
-            id: 'furniture',
-            label: 'Furniture shipping',
-            amount: {currency, value: '10.00'}
-          }
-        ]
-      };
+        const details = {
+            displayItems: [
+                {
+                    label: sku,
+                    amount: {
+                        currency,
+                        value
+                    }
+                },
+                {
+                    label: 'Shipment',
+                    amount: {
+                        currency,
+                        value: '0.00'
+                    }
+                }
+            ],
+            total: {
+                label: 'Total',
+                amount: {
+                    currency,
+                    value
+                }
+            },
+            shippingOptions: [
+                {
+                    id: 'parcel',
+                    label: 'Parcel shipping',
+                    amount: {
+                        currency,
+                        value: '0.00'
+                    },
+                    selected: true
+                },
+                {
+                    id: 'furniture',
+                    label: 'Furniture shipping',
+                    amount: {
+                        currency,
+                        value: '10.00'
+                    }
+                }
+            ]
+        };
 
-      const options = {
-        requestShipping: true,
-        requestPayerEmail: true,
-        requestPayerPhone: true
-      };
+        const options = {
+            requestShipping: true,
+            requestPayerEmail: true,
+            requestPayerPhone: true
+        };
 
-      createRequest(supportedInstruments, details, options)
+        createRequest(supportedInstruments, details, options)
     }
 }
 
 function createRequest(methods, details, options) {
-  const request = new PaymentRequest(methods, details, options);
+    const request = new PaymentRequest(methods, details, options);
 
-  request.show().then((result) => {
-    dispatch(finishCheckoutProcess(result));
-    return result.complete('success');
-  });
+    request.show().then((result) => {
+        return result.complete('success').then(()=> {
+            dispatch(finishCheckoutProcess(result));
+        });
+    });
 }
