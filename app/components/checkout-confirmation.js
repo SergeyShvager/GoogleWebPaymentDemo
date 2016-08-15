@@ -27,7 +27,7 @@ export default React.createClass({
 
                 <Paper>
 
-                    <table>
+                    <table className="confirmation-page__details-table">
                         <tbody>
                             <tr>
                                 <td>Payment type</td>
