@@ -18,6 +18,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { saveUserToken, checkUserAuth, fetchUser } from './actions/user';
 import App from './containers/app';
+import CheckoutConfirmation from './containers/pages/checkout-confirmation';
 import configureStore from './store/configure-store';
 import 'es6-promise';
 
@@ -37,7 +38,6 @@ window.onSignIn = function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail());
-
 };
 
 injectTapEventPlugin();
@@ -53,6 +53,7 @@ ReactDOM.render(
         <Provider store={store}>
             <Router history={history}>
                 <Route path="/" component={App} />
+                <Route path="/checkout-confirmation" component={CheckoutConfirmation} />
             </Router>
         </Provider>
     </MuiThemeProvider>, document.getElementById('app'));

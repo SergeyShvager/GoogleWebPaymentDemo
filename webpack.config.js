@@ -7,9 +7,9 @@ const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-process.env.BABEL_ENV = TARGET;
-
 const TARGET = process.env.npm_lifecycle_event;
+
+process.env.BABEL_ENV = TARGET;
 
 const PATHS = {
     app: path.join(__dirname, 'app'),
