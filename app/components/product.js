@@ -24,7 +24,7 @@ const Product = React.createClass({
         return (
             <GridTile
                 key={product.img}
-                titleBackground="rgba(0, 0, 0, 0.6)"
+                titleBackground="rgba(0, 0, 0, 0.4)"
                 title={product.title}
                 subtitle={<span>{product.amount.value} <b>{product.amount.currency}</b></span>}
                 actionIcon={<IconButton onClick={() => {this.onClick(product)}}><AddToCartIcon color="orange" /><b>Buy</b></IconButton>}
