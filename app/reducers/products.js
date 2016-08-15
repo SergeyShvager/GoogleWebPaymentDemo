@@ -1,10 +1,3 @@
-// @flow
-
-import assign from 'lodash/assign';
-import filter from 'lodash/filter';
-
-import {PUBLISH_POST_SUCCESS, REMOVE_NOTIFICATION} from './../actions/notification';
-
 const defaultState = [
         {
             sku: 'SKU-1',
