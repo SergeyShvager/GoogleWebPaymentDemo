@@ -54,7 +54,7 @@ export function startCheckout(product) {
         ],
         total: {
           label: 'Total',
-          amount: { currency: currency, value value }
+          amount: { currency, value }
         },
         shippingOptions: [
           {
