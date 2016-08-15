@@ -1,5 +1,4 @@
 import React from 'react';
-import Feed from './feed/feed';
 
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/RaisedButton';
