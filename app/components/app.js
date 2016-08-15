@@ -14,12 +14,14 @@ export default React.createClass({
     name: 'App',
 
     render() {
+        const products = this.props.products;
+
         return (
             <div>
                 <AppBar
                     title="Demo"
                 />
-                <ProductList />
+                <ProductList products={products} />
 
                 <NotificationWidget />
 
