@@ -16,7 +16,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import { saveUserToken, checkUserAuth, fetchUser } from './actions/user';
 import App from './containers/app';
 import CheckoutConfirmation from './containers/pages/checkout-confirmation';
 import configureStore from './store/configure-store';
@@ -25,27 +24,11 @@ import 'es6-promise';
 const store = configureStore({});
 const history = syncHistoryWithStore(hashHistory, store);
 
-store.dispatch(checkUserAuth());
-
-window.onSignIn = function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    var id_token = googleUser.getAuthResponse().id_token;
-
-    store.dispatch(saveUserToken(id_token));
-    store.dispatch(fetchUser());
-
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
-};
-
 injectTapEventPlugin();
 
 const customOptions = {
     palette: {
-        primary1Color: orange500,
-        primary2Color: pinkA200
+        primary1Color: orange500
     }
 };
 ReactDOM.render(
