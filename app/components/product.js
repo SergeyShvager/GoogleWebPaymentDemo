@@ -9,6 +9,16 @@ const Product = React.createClass({
         product: React.PropTypes.object
     },
 
+    onClick() {
+        this.props.onBuyClick({
+            sku: '12345',
+            amount: {
+                currency: 'EUR',
+                value : '55.00'
+            }
+        });
+    },
+
     render() {
         const { product } = this.props;
         return (

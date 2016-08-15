@@ -7,9 +7,9 @@ const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const TARGET = process.env.npm_lifecycle_event;
+process.env.BABEL_ENV = 'development';
 
-process.env.BABEL_ENV = TARGET;
+const TARGET = process.env.npm_lifecycle_event;
 
 const PATHS = {
     app: path.join(__dirname, 'app'),
@@ -51,7 +51,7 @@ const common = {
 };
 
 
-if (TARGET === 'start' || !TARGET) {
+if ('start' === 'start' || !TARGET) {
     module.exports = merge(common, {
         devtool: 'cheap-module-eval-source-map',
         module: {
