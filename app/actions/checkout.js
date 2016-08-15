@@ -58,43 +58,34 @@ export function startCheckout(product) {
         },
         shippingOptions: [
           {
-            id: 'standard',
+            id: 'parcel',
             label: 'Parcel shipping',
             amount: {currency, value: '0.00'},
             selected: true
           },
           {
-            id: 'express',
-            label: 'Funiture shipping',
-            amount: {currency, value: '0.00'}
+            id: 'furniture',
+            label: 'Furniture shipping',
+            amount: {currency, value: '10.00'}
           }
         ]
       };
 
       const options = {
         requestShipping: true,
-        requestPayerEmail: false,
+        requestPayerEmail: true,
         requestPayerPhone: true
       };
 
-      const request = new PaymentRequest(supportedInstruments, details, options);
-
-      request.addEventListener('shippingoptionchange', (evt) => {
-        evt.updateWith(new Promise((resolve, reject) => {
-          const newOptions = getNewOptions(request.options, request.shippingOption);
-          resolve(newOptions);
-        }));
-      });
-
-      request.show().then((result) => {
-        dispatch(finishCheckoutProcess(result));
-        return result.complete('success');
-      });
+      createRequest(supportedInstruments, details, options)
     }
 }
 
-function getNewOptions(oldOptions, selectedShippingOption) {
-  console.log(arguments);
-  return oldOptions;
+function createRequest(methods, details, options) {
+  const request = new PaymentRequest(methods, details, options);
 
+  request.show().then((result) => {
+    dispatch(finishCheckoutProcess(result));
+    return result.complete('success');
+  });
 }
