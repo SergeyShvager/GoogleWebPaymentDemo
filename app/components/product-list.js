@@ -28,7 +28,7 @@ const ProductList = React.createClass({
         return (
             <div style={styles.root}>
                 <GridList
-                    cellHeight={300}
+                    cellHeight={250}
                     padding={8}
                     style={styles.gridList}
                 >
