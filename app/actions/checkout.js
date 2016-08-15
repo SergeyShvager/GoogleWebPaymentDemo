@@ -74,7 +74,7 @@ export function startCheckout(product) {
       const options = {
         requestShipping: true,
         requestPayerEmail: true,
-        requestPayerPhone: false
+        requestPayerPhone: true
       };
 
       createRequest(supportedInstruments, details, options)
