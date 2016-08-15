@@ -1,3 +1,5 @@
+import { hashHistory } from 'react-router';
+
 export const CHECKOUT_PROCESS_START = 'CHECKOUT_PROCESS_START';
 export const CHECKOUT_PROCESS_FINISH = 'CHECKOUT_PROCESS_FINISH';
 export const CHECKOUT_PROCESS_ERROR = 'CHECKOUT_PROCESS_ERROR';
@@ -90,16 +92,14 @@ export function startCheckout(product) {
             requestPayerPhone: true
         };
 
-        createRequest(supportedInstruments, details, options)
-    }
-}
+        const request = new PaymentRequest(supportedInstruments, details, options);
 
-function createRequest(methods, details, options) {
-    const request = new PaymentRequest(methods, details, options);
-
-    request.show().then((result) => {
-        return result.complete('success').then(()=> {
-            dispatch(finishCheckoutProcess(result));
+        request.show().then((result) => {
+            return result.complete('success').then(()=> {
+                dispatch(finishCheckoutProcess(result));
+                hashHistory.push('/checkout-confirmation');
+            });
         });
-    });
+
+    }
 }

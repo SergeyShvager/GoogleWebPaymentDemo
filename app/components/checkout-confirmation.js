@@ -16,8 +16,7 @@ export default React.createClass({
     name: 'CheckoutConfirmation',
 
     render() {
-        const { startCheckout, checkout } = this.props;
-
+        const { checkout } = this.props;
 
         return (
             <div>

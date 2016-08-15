@@ -5,7 +5,7 @@ import checkout from './checkout';
 import { routerReducer } from 'react-router-redux';
 
 const defaultState = {
-  user: {}
+  checkout: {}
 };
 
 const rootReducer = (state: Object = defaultState, action: Object) => {
