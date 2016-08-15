@@ -11,14 +11,14 @@ export default React.createClass({
     name: 'App',
 
     render() {
-        const products = this.props.products;
+        const { products, startCheckout } = this.props;
 
         return (
             <div>
                 <AppBar
                     title="Demo"
                 />
-                <ProductList products={products} />
+                <ProductList products={products} onClick={startCheckout} />
 
                 <NotificationWidget />
 
