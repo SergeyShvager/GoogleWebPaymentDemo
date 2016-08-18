@@ -1,4 +1,4 @@
-# Google Web Payment Demo from Home24
+# Google Web Payment Demo
 
 Checkout what we did on Google Hackaton -> [Demo link](https://sergeyshvager.github.io/GoogleWebPaymentDemo/#/?_k=9bf3e2)
 
